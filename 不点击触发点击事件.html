@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<ul>
+		<li><a href="javascript:;" class="tree-item">aaaaa</a></li>
+		<li><a href="javascript:;" class="tree-item">bbbbb</a></li>
+		<li><a href="javascript:;" class="tree-item">ccccc</a></li>
+		<li><a href="javascript:;" class="tree-item">ddddd</a></li>
+		<li><a href="javascript:;" class="tree-item">eeeee</a></li>
+		<li><a href="javascript:;" class="tree-item">fffffff</a></li>
+	</ul>
+
+	<a href="javascript:;" class="resource">点击触发点击事件</a>
+
+	<script src="./jquery.js"></script>
+	<script>
+		$(function(){
+			var $treeItem = $('.tree-item');
+			var $resource = $('.resource');
+
+			var trager = '';
+			var e = jQuery.Event("click")
+			$resource.on('click',function(){
+				$treeItem.trigger(e);
+				console.log(e.target);
+			});
+
+			// $('ul').on('click',function(e){
+			// })
+
+			$treeItem.bind('click',function(){
+				console.log($treeItem);
+			})
+
+
+
+		})
+	</script>
+</body>
+</html>
+
+<!-- <html>
+<head>
+<script type="text/javascript" src="./jquery.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+  $("input").select(function(){
+    $("input").after("文本被选中！");
+  });
+  var e = jQuery.Event("select");
+  $("button").click(function(){
+    $("input").trigger(e);
+console.log(e.target)
+  });
+});
+</script>
+</head>
+<body>
+<input type="text" name="FirstName" value="Hello World" />
+<br />
+<button>激活 input 域的 select 事件</button>
+</body>
+</html> -->
